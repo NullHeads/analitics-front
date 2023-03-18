@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4d69c5;
+    padding: 12px 32px;
+    margin-bottom: 32px;
+    height: 64px;
+}
+
+.navbar__logo {
+    width: 72px;
+}
+
+.navbar__search {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.MuiFilledInput-input {
+font-size: 16px;
+}
