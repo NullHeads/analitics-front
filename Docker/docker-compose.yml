@@ -9,6 +9,14 @@ services:
     restart: unless-stopped
     networks:
       - app
+    deploy:
+      resources:
+        limits:
+          cpus: 0.20
+          memory: 256M
+        reservations:
+          cpus: 0.25
+          memory: 128M
     ports:
       - "3000:3000"
         
