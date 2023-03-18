@@ -1,0 +1,39 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: isbang/compose-action@v1.4.1
+      with:
+        compose-file: "Docker/docker-compose.yml"
+        down-flags: "-d"
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Deploying
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          password: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.USERNAME }}
+          command_timeout: 20m
+          script: |
+            cd front
+            git pull https://${{secrets.PAT}}@github.com/NullHeads/analitics-front.git master
+            cd Docker
+            echo "${{secrets.PASSWORD}}" | sudo -S docker-compose up -d --build

@@ -1,0 +1,17 @@
+﻿version: "3.2"
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: Docker/Dockerfile
+    container_name: analitics-front
+    tty: true
+    restart: unless-stopped
+    networks:
+      - app
+    ports:
+      - "3000:3000"
+        
+networks:
+  app:
+    driver: bridge
