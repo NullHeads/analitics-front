@@ -30,7 +30,7 @@ export const UsersTable = ({setUser}) => {
         <TableHead>
           <TableRow>
            {Object.values(criterions).map((criterion) => (
-              <TableCell align="center" key={criterion}>{criterion}</TableCell>
+              <TableCell align="center" key={criterion}><h3>{criterion}</h3></TableCell>
            ))}
           </TableRow>
         </TableHead>
