@@ -25,7 +25,7 @@ export const UserProfile = ({user}) => {
             Должность: {user.jobTitle}
           </Typography>
           <Typography sx={{ mb: 1.5 }} >
-            Процент выгорания: {user.burnoutPercent}
+            Вероятность выгорания: {user.burnoutPercent}
           </Typography>
         </CardContent>
       </Card>
