@@ -20,14 +20,20 @@ ChartJS.register(
   );
   
   export const options = {
+    indexAxis: 'y',
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'right',
       },
       title: {
         display: true,
-        text: 'Показатели Сотрудника',
+        text: 'Показатели сотрудника',
       },
     },
   };  
