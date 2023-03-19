@@ -1,7 +1,8 @@
-import react, {useState} from 'react';
+import {useState} from 'react';
 import Navbar from "./components/Navbar";
 import UsersTable from './components/UsersTable';
 import "./App.css"
+import UserProfile from './components/UserProfile';
 
 function App() {
   const [user, setUser] = useState({})
@@ -10,10 +11,10 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="content">
-      <h1>Возможно выгорели</h1>
+      <h1>Таблица выгорания</h1>
         <UsersTable setUser={setUser} />
+        {user && !!Object.keys(user).length && <UserProfile user={user}/>}
       </div>
-      {user && Object.keys(user).length && <User />}
     </div>
   );
 }

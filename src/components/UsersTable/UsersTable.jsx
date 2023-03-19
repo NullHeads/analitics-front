@@ -9,9 +9,9 @@ import { getUser, getUsers } from '../../api/api';
 
 const criterions = {
   id:"id", 
-  firstName: "First Name", 
-  lastName: "Last Name",
-  jobTitle: "Job title"
+  firstName: "Имя", 
+  lastName: "Фамилия",
+  jobTitle: "Должность"
 }
 
 export const UsersTable = ({setUser}) => {
