@@ -35,7 +35,7 @@ export const UsersTable = ({setUser}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map(user => (
+          {users.sort((user1, user2) => user1.id - user2.id).map(user => (
             <TableRow key={user.id} onClick={() => getUserHandler(user.id)}>
               {Object.keys(criterions).map(criterion => (
                 <TableCell align="center" key={criterion}>{user[criterion]}</TableCell>
